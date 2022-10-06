@@ -56,7 +56,7 @@ def collate_mols(mol_dicts):
 
     return data_batch
 
-
+# like for example here
 class CrossDocked2020_SBDD(Dataset):
     def __init__(self, data_root='./aurdata', data_file='./aurdata/it2_tt_0_lowrmsd_mols_train0_fixed.types', atomic_num_to_type = atomic_num_to_type, atomic_element_to_type = atomic_element_to_type, binding_site_range=15.0):
         super().__init__()

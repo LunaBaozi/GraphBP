@@ -7,7 +7,7 @@ from torch_geometric.nn.inits import glorot_orthogonal
 class ST_Net_Exp(nn.Module):
     def __init__(self, input_dim, output_dim, hid_dim=64, num_layers=2, bias=True):
         super(ST_Net_Exp, self).__init__()
-        self.num_layers = num_layers  # unused
+        self.num_layers = num_layers  # unused  -> if unused cancel it
         self.input_dim = input_dim
         self.hid_dim = hid_dim
         self.output_dim = output_dim

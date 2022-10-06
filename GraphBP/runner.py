@@ -107,7 +107,7 @@ class Runner():
                 file_obj.close()
     
 
-
+# check for more occurrencies of data directory
     def generate(self, num_gen, temperature=[1.0, 1.0, 1.0, 1.0], min_atoms=2, max_atoms=35, focus_th=0.5, contact_th=0.5, add_final=False, contact_prob=False, data_root='./aurdata', data_file='./aurdata/selected_test_targets.types', atomic_num_to_type=atomic_num_to_type, atomic_element_to_type = atomic_element_to_type, known_binding_site=False, binding_site_range=15.0):
         data_cols = [
             'low_rmsd',
