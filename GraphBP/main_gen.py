@@ -32,3 +32,7 @@ for epoch in epochs:
     with open('{}/{}_mols.mol_dict'.format(trained_model_path, epoch),'wb') as f:
         pickle.dump(all_mol_dicts, f)
         
+
+
+# NOTE: the structure of the data files is as follows:
+# {class_label:d} {affinity:f} {RMSD:f} {receptor_path} {ligand_path}
