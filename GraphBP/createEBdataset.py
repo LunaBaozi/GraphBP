@@ -12,9 +12,6 @@ gen_ligands_path = '/home/luna/Documents/Coding/GraphBP/GraphBP/aurdata/gen_mols
 aurkb_gen_complex = '/home/luna/Documents/Coding/GraphBP/GraphBP/aurdata/aurkb_gen_complex'
 write_dir = '/home/luna/Documents/Coding/GraphBP/GraphBP/aurdata/aurkb_gen_complex/molsHs_added'
 
-# new_folders = ['aurkb_gen_complex', 'molsHs_added']
-# os.makedirs(os.path.dirname(aurkb_gen_complex), exist_ok=True)
-# os.makedirs(os.path.dirname(write_dir), exist_ok=True)
 
 
 def converter(file_name):
@@ -44,11 +41,7 @@ def addHs2molfromsmiles(smiles):
 
 def createEquiBind_dataset():
 
-    # for folder in new_folders:
-
     os.makedirs(os.path.dirname(write_dir), exist_ok=True)
-    # os.mkdir(os.path.join(aurkb_gen_complex, write_dir))
-
 
     for i in range(1, 101):
         os.makedirs(os.path.join(aurkb_gen_complex, f'{aur_protein_pdb}{i}'))
@@ -58,21 +51,13 @@ def createEquiBind_dataset():
 
         shutil.copy(aurkb_file, subfolder)
         shutil.copy(f'{gen_ligands_path}/{i}.sdf', subfolder)
-        # shutil.copy(f'{write_dir}/Hmol.sdf', os.path.join(aurkb_gen_complex, f'{aur_protein_pdb}{i}'))
 
         # Returns
         mol_addedHs = addHs2molfromsmiles(converter(noH_mol))
-        # shutil.copy(f'{write_dir}/Hmol_{i}.sdf', subfolder)
         shutil.move('Hmol.sdf', subfolder)
 
         os.rename(f'{subfolder}/{rec_name}.pdb', f'{subfolder}/{aur_protein_pdb}{i}_protein.pdb')
-        # os.rename(f'{subfolder}/{i}.sdf', f'{subfolder}/{aur_protein_pdb}{i}_ligand.sdf')
         os.rename(f'{subfolder}/Hmol.sdf', f'{subfolder}/{aur_protein_pdb}{i}_ligand.sdf')
 
         
 createEquiBind_dataset()
-        
-        
-        
-# os.makedirs(os.path.dirname(f'{aur_protein}_ligand{i}'), exist_ok=True)
-# shutil.copy(gen_ligands_path, dest_fpath)s
