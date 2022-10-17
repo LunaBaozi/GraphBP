@@ -1,6 +1,8 @@
 import os, copy
 import pandas as pd
 from rdkit import Chem
+from rdkit.Chem import AllChem
+from rdkit import DataStructs
 
 # AURORA KINASE B KNOWN INHIBITORS following https://www.guidetopharmacology.org/GRAC/ObjectDisplayForward?objectId=1937
 # interessante la presenza del fluoro in molti inibitori
@@ -52,24 +54,31 @@ def addHs2molfromsmiles(smiles, filename='Hmol.sdf', output_type=None):
 
 known_aurkb_inhibitors = pd.read_csv('/home/luna/Documents/Coding/GraphBP/GraphBP/aurkb_inhibitors.csv', header=0)
 # print(type(known_aurkb_inhibitors))  # pandas dataframe
-
 # known_aurkb_inhibitors.to_dict(orient='list')
 ciao = dict(zip(known_aurkb_inhibitors.inhibitor, known_aurkb_inhibitors.smiles))
-# print(ciao)
-# print(ciao.keys())
-
 aurkb_inhibitors = copy.deepcopy(ciao)
 aurkb_inhibitors = {key:[] for key in aurkb_inhibitors}
-# print(aurkb_inhibitors)
 
 
-# known_aurkb_inhibitors = [tozasertib_c, tozasertib_i,
-#                           hesperadin_c, hesperadin_i,
-#                           zm447439_c, zm447439_i,
-#                           ]
 
+
+def tanimoto_calc(mol1, mol2):   #(smi1, smi2):
+    
+    # mol1 = Chem.MolFromSmiles(smi1)
+    # mol2 = Chem.MolFromSmiles(smi2)
+    fp1 = AllChem.GetMorganFingerprintAsBitVect(mol1, 3, nBits=2048)
+    fp2 = AllChem.GetMorganFingerprintAsBitVect(mol2, 3, nBits=2048)
+
+    s = round(DataStructs.TanimotoSimilarity(fp1, fp2), 3)
+
+    return s
+
+
+# THERE MIGHT BE SOME NONE AROUND
 
 def compare_mol_smiles():
+
+    tanimoto = list()
 
     matches = copy.deepcopy(aurkb_inhibitors)
     # matches = {'tozasertib_c': [],
@@ -80,7 +89,6 @@ def compare_mol_smiles():
     gen_mols_dir = '/home/luna/Documents/Coding/GraphBP/GraphBP/aurdata/aurkb_gen_complex'
 
     for gen_mol_dir in os.listdir(gen_mols_dir):
-
         rel_path = os.path.join(gen_mols_dir, gen_mol_dir)
         for filename in os.listdir(rel_path):
             if 'ligand' in filename:
@@ -94,6 +102,11 @@ def compare_mol_smiles():
                             basic_smiles_test = compound
                             canon_smiles_test = Chem.CanonSmiles(compound)
                             # print(filename, pattern, test)
+
+                            simil = tanimoto_calc(basic_smiles_pattern, basic_smiles_test)
+                            tanimoto.append([(basic_smiles_test, basic_smiles_pattern, simil)])
+
+
                             if basic_smiles_pattern == basic_smiles_test:
                                 matches[compound].append(filename)
                             elif basic_smiles_pattern == canon_smiles_test:
@@ -109,3 +122,4 @@ def compare_mol_smiles():
 
 print(compare_mol_smiles())
 # compare_mol_smiles()
+
