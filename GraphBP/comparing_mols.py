@@ -1,4 +1,4 @@
-import os, copy
+import os, copy, csv
 import pandas as pd
 from rdkit import Chem
 from rdkit.Chem import AllChem
@@ -62,10 +62,10 @@ aurkb_inhibitors = {key:[] for key in aurkb_inhibitors}
 
 
 
-def tanimoto_calc(mol1, mol2):   #(smi1, smi2):
+def tanimoto_calc(smi1, smi2):   #(smi1, smi2):
     
-    # mol1 = Chem.MolFromSmiles(smi1)
-    # mol2 = Chem.MolFromSmiles(smi2)
+    mol1 = Chem.MolFromSmiles(smi1)
+    mol2 = Chem.MolFromSmiles(smi2)
     fp1 = AllChem.GetMorganFingerprintAsBitVect(mol1, 3, nBits=2048)
     fp2 = AllChem.GetMorganFingerprintAsBitVect(mol2, 3, nBits=2048)
 
@@ -80,7 +80,7 @@ def compare_mol_smiles():
 
     tanimoto = list()
 
-    matches = copy.deepcopy(aurkb_inhibitors)
+    # matches = copy.deepcopy(aurkb_inhibitors)
     # matches = {'tozasertib_c': [],
     #            'hesperadin_c': [],
     #            'zm447439_c': []
@@ -90,36 +90,48 @@ def compare_mol_smiles():
 
     for gen_mol_dir in os.listdir(gen_mols_dir):
         rel_path = os.path.join(gen_mols_dir, gen_mol_dir)
+        
         for filename in os.listdir(rel_path):
             if 'ligand' in filename:
                 sppl = Chem.SDMolSupplier(os.path.join(rel_path, filename)) #if os.path.isfile(filename):
+                
                 for mol in sppl:
                     if mol is not None:  # some compounds cannot be loaded.
                         basic_smiles_pattern = Chem.MolToSmiles(mol)
                         canon_smiles_pattern = Chem.CanonSmiles(basic_smiles_pattern)
-                        for compound in ciao.values():
+                        
+                        for name, compound in ciao.items():
                             # print(compound)
                             basic_smiles_test = compound
                             canon_smiles_test = Chem.CanonSmiles(compound)
-                            # print(filename, pattern, test)
 
+                            # should we use the standard or canonical smiles?
                             simil = tanimoto_calc(basic_smiles_pattern, basic_smiles_test)
-                            tanimoto.append([(basic_smiles_test, basic_smiles_pattern, simil)])
+                            tanimoto.append([name, basic_smiles_test, basic_smiles_pattern, simil])
 
 
-                            if basic_smiles_pattern == basic_smiles_test:
-                                matches[compound].append(filename)
-                            elif basic_smiles_pattern == canon_smiles_test:
-                                matches[compound].append(filename)
-                            elif canon_smiles_pattern == basic_smiles_test:
-                                matches[compound].append(filename)
-                            elif canon_smiles_pattern == canon_smiles_test:
-                                matches[compound].append(filename)
+                            # if basic_smiles_pattern == basic_smiles_test:
+                            #     matches[compound].append(filename)
+                            # elif basic_smiles_pattern == canon_smiles_test:
+                            #     matches[compound].append(filename)
+                            # elif canon_smiles_pattern == basic_smiles_test:
+                            #     matches[compound].append(filename)
+                            # elif canon_smiles_pattern == canon_smiles_test:
+                            #     matches[compound].append(filename)
                             
+                    # print('None')
 
-    return matches
+    return tanimoto #matches
 
 
-print(compare_mol_smiles())
+# print(compare_mol_smiles())
 # compare_mol_smiles()
 
+tanimoto = compare_mol_smiles()
+
+# for tlist in tanimoto:
+#     print(*tlist)
+
+# with open('output.csv', 'w', newline='') as csvfile:
+#     writer = csv.writer(csvfile)
+#     writer.writerows(tanimoto)
