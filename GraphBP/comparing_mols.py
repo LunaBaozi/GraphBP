@@ -81,9 +81,10 @@ def tanimoto_calc(smi1, smi2):
 
 def compare_mol_smiles():
 
-    tanimoto = list()
+    tanimoto_basic = list()
+    tanimoto_canon = list()
 
-    gen_mols_dir = '/home/luna/Documents/Coding/GraphBP/GraphBP/aurdata/aurkb_gen_complex'
+    gen_mols_dir = './aurdata/aurkb_gen_complex'
 
     for gen_mol_dir in os.listdir(gen_mols_dir):
         rel_path = os.path.join(gen_mols_dir, gen_mol_dir)
@@ -95,16 +96,20 @@ def compare_mol_smiles():
                 for mol in sppl:
                     if mol is not None:  # some compounds cannot be loaded.
                         basic_smiles_pattern = Chem.MolToSmiles(mol)
-                        # canon_smiles_pattern = Chem.CanonSmiles(basic_smiles_pattern)
+                        canon_smiles_pattern = Chem.CanonSmiles(basic_smiles_pattern)
                         
                         for name, compound in inhibitors_dict.items():
                             # print(compound)
                             basic_smiles_test = str(compound)
-                            # canon_smiles_test = Chem.CanonSmiles(compound)
+                            canon_smiles_test = Chem.CanonSmiles(compound)
 
-                            # should we use the standard or canonical smiles?
+                            # using basic smiles
                             simil = tanimoto_calc(basic_smiles_pattern, basic_smiles_test)
-                            tanimoto.append([name, basic_smiles_test, basic_smiles_pattern, simil])
+                            tanimoto_basic.append([name, basic_smiles_test, basic_smiles_pattern, simil])
+
+                            # using canon smiles
+                            simil = tanimoto_calc(canon_smiles_pattern, canon_smiles_test)
+                            tanimoto_canon.append([name, canon_smiles_pattern, canon_smiles_test, simil])
 
 
                             # if basic_smiles_pattern == basic_smiles_test:
@@ -118,16 +123,20 @@ def compare_mol_smiles():
                             
                     # print('None')
 
-    return tanimoto #matches
+    return tanimoto_basic, tanimoto_canon #matches
 
 
 
 
-tanimoto = compare_mol_smiles()
+tanimoto_basic, tanimoto_canon = compare_mol_smiles()
 
 # # for tlist in tanimoto:
 # #     print(*tlist)
 
-with open('output_withcsvfromwebsite.csv', 'w', newline='') as csvfile:
-    writer = csv.writer(csvfile)
-    writer.writerows(tanimoto)
+with open('./aurdata/results/output_tanimoto_basic.csv', 'w', newline='') as csvfile1:
+    writer = csv.writer(csvfile1)
+    writer.writerows(tanimoto_basic)
+
+with open('./aurdata/results/output_tanimoto_canon.csv', 'w', newline='') as csvfile2:
+    writer = csv.writer(csvfile2)
+    writer.writerows(tanimoto_canon)
