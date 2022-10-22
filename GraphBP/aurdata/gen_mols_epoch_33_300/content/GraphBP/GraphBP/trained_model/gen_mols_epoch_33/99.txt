@@ -1,0 +1,1 @@
+B=C[C@@]12[C@H]3C(C4C[C@@H](O)[C@H](C)OC[C@@H]5[C@H]4P4C[C@H](ON)C[C@@]54N[C@H]4CC[C@]5(C)CC[C@H]5[C@H]4[C@H]4N[C@H]([NH])[N][C@@H](CF)S4)[C@@H]1[C@H]32	

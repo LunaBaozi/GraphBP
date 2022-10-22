@@ -1,0 +1,1 @@
+CC=CC[C@H]1[C@]23[C@@H]4CC[C@@H]5CC[C@H]6[C@@H]7[C@](C)([C@H](C)O[C@H]8CCCC[C@@H]8C)[C@@]67C[C@H]5[C@]12[C@@H]43	

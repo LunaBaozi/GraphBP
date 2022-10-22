@@ -1,0 +1,1 @@
+C=C[C@H](N)[C@H]([C@H](NC[C@@H]1[C@H]2[C@H]3[C@H](CC)[C@@]132)[C@@H](F)NNC)[C@@]1(NCF)[C@H](F)[C@@H]1CCC[C@@]1(C)OOC[C@@]1(C)NO	

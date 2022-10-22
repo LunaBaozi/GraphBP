@@ -1,0 +1,1 @@
+C=CC[C@@H]1O[C@@]12C=CC=[Al]C21CC1	

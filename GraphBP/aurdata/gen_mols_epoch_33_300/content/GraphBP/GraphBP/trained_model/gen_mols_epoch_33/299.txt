@@ -1,0 +1,1 @@
+CCC[C@@H]1/C=C\CC[C@H]2[C@@H]3C[C@]23O[C@@H]2[C@]3(F)[C@H]4[C@@]5(C[C@H]5[C@@H]5[C@H]6[C@@H]7C[C@@H]7CC[C@H]7C[C@]78C[C@]568)C[C@H]1[C@]243	

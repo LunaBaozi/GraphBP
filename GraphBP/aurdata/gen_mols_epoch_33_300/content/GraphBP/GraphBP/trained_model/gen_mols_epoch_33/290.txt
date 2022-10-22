@@ -1,0 +1,1 @@
+C=CCC[C@@H](C)CN1[Se][C@]2(CC[C@H]2CC)CC[C@@]23[C@@H](CC[C@@H]4C[C@@H]5CCC[C@]6(C4)[C@H]4[C@@H]5[C@H]46)N2[C@H]13	

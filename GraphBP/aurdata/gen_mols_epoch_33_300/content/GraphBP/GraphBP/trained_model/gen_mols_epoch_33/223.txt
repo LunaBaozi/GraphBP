@@ -1,0 +1,1 @@
+C=C[C@@H](CCC)CC[C@H]1CN=CCN(C[C@H](CCC)C[C@@]23C[C@H](C)[C@@H]2C3)[C@H]1CCC	

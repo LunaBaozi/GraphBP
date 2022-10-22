@@ -1,0 +1,1 @@
+C=C1C[C@@H]([SiH3])CC[C@H]([C@@]2(CCC[C@@H]3C[C@H]3C[C@H]3CC34CC4)C[C@@H]2[C@H]2O[C@@]23[C@@]2(CC)CC[C@@]23[C@H]2C[C@]23[C@H]2[C@H](CC)[C@H]23)C1	

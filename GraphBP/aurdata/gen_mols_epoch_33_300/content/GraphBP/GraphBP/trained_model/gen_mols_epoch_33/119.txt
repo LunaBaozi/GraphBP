@@ -1,0 +1,1 @@
+CCC=C[C@]1(C)[C@@H]([C@@H]2C[C@@H]3[C@@]4(C[As]24)[C@]3(O)[C@@H]2[C@@H]3[C@H](CO)N2[C@@H]3CCC[C@@H]2[C@@]34C[C@]3(C(=O)OCC)[C@@]24I)[C@@]12C[C@]21CC[C@H](CC)C1	

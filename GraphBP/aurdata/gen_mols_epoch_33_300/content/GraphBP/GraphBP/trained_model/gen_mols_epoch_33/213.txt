@@ -1,0 +1,1 @@
+CC[C@H](F)[C@H](CC=N)C[C@@H]1NC[C@@H](C[C@H]2[C@H]3C[C@@H]23)[C@H]2C[C@H]2C[C@@H]1CC	

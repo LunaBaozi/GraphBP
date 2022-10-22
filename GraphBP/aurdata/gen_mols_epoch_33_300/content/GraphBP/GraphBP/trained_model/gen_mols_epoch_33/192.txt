@@ -1,0 +1,1 @@
+CC[C@H]1CCN[C@H](C2(F)CC2)[C@H]2C/C=C/C[C@@H](C)C[C@H]2C1	

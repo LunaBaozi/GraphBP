@@ -1,0 +1,1 @@
+C[C@@H]1[C@@H]2NC[C@]34C[C@]5(C[C@]6(CC[C@H]7C[C@H]7[C@@]7([C@@H](C)O)[C@H]8NO[C@H](C)[C@@H]([C@H]9N[C@@H]97)[C@@H]8[C@@]78C[C@H]7[C@H]18)[C@H]2[C@@H]65)[C@H](C3)C4	

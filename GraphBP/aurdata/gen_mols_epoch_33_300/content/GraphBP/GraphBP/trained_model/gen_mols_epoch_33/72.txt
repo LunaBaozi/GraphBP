@@ -1,0 +1,1 @@
+C=C1[C@H](CC)[C@H](O)[C@@H]2C[C@@H]3C[C@](O)(C(=O)[C@@H]2[C@H](CCCC)C[C@@H]1CC(=O)[C@H]1[C@@H](CCC)[C@H]1C)[C@H]3[C@@]12C[C@H]1[C@@H](CCC)[C@H]2C	

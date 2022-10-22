@@ -1,0 +1,1 @@
+CCCN[C@@H]1CN[C@@]23CN[C@@]24C[C@]4([C@]24C[C@]25[C@H]4[C@H](C)C[C@@]52C[C@@H]2C)[Sb]3OC1	

@@ -1,0 +1,1 @@
+C=C1[C@@H](C[C@@H]2[C@H]3C[C@H]32)CC[C@H](CN(CC)C[C@H]2CC[C@@]2(I)CC)[C@@]12[C@H]1[C@H]3[C@@H](C)[C@H]4[C@@H]2[C@H](C25[C@H]6[C@@H](C[C@H]7[C@]8(C)N[C@@H]8[C@@]72C)[C@H]65)[C@]413	

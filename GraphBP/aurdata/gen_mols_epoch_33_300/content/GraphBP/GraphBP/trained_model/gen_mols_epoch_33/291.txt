@@ -1,0 +1,1 @@
+C[C@@](F)([C@H](O)C(=O)O)[C@@H]1C[C@H]2C[C@H]2[C@@H]2[C@H]1[C@]21C[C@@H]1[C@H]1CCOCC[C@H](C[C@H]2CCCCCC[C@H](C3CC3)C2)[C@@H]1C1CC1	

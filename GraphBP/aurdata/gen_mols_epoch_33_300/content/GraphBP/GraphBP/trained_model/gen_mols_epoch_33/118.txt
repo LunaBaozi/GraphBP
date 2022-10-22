@@ -1,0 +1,1 @@
+C=C1CN[C@H]2[C@H]3O[C@@H](NBr)[C@H]4C[C@]43C[C@@](C[C@H]3C[C@H]([C@H]4[C@H]5[C@H](C)[C@]46C[C@H]56)N3)(B[C@@H]3C[C@@H](CC[C@H]4CC[C@H]14)[C@@H]3C(O)O)[C@@H]2CO	

@@ -1,0 +1,1 @@
+C=C[C@@H]1C[C@H](CO)[C@@H](O)[C@@H]2[C@@H]([C@@H]3CC[C@@]3(O)C[C@H]3C[C@@H](C)C3)C[C@H]12	

@@ -1,0 +1,1 @@
+C=C[C@H](C)OCCCS[C@H]1[C@@]23[C@H]4CC[C@@]([C@@H]([C@H](O)Cl)[C@H]5[C@@H](C)[C@]5(CC=C[C@@H]5CC5(C)C)[C@@H](C)CC)([C@H]2O)[C@]32[C@]43[C@@H](CCC)[C@@]132	

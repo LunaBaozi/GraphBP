@@ -1,0 +1,1 @@
+C[C@@H]1C[C@H]2[C@H](C[C@@H]3C[C@H](O)[C@@H]3CCCC[C@]34C[C@]35[C@@H]4N5[C@@H]3N[C@H]([C@@H]4CC[C@@H]4C[C@@]45[C@@H]6C[C@@]6(N)[C@@H]4[C@@]5(C)O)[C@@H]3O)CCCC[C@@H]21	

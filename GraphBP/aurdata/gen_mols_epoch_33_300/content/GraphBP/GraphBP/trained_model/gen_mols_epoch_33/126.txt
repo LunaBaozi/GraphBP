@@ -1,0 +1,1 @@
+C=CC[C@H](C)CC(=C)CC[C@@H]1C[C@@H]1C[C@H]1[C@@H]2O[C@@H]3N4[C@H](C[C@H](C)[C@@H]5C(C)(C)[C@]215)[C@]34O	

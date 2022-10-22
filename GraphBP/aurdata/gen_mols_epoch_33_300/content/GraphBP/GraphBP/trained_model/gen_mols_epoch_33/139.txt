@@ -1,0 +1,1 @@
+C=C[C@H]1N(C)[C@@H]([C@@]23[C@@H]([C@@H](C)CC[C@H](C[C@]45[C@]67[C@]48[C@@H](CC)[C@]68[C@@]75C4(F)N[C@@H]4C)[Sb](N)CNC)N2C3(N)N)N1[C@@H](COC)C(=C)CC	

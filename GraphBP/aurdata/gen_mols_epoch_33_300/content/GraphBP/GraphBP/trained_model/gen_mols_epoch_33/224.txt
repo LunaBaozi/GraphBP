@@ -1,0 +1,1 @@
+CC[C@H]1[C@H](OC[C@@]2(O)[Si@@H]([C@H]3[C@H]4C[C@H](C)[C@]43CC)N[C@@]2(O)CC2CC2)[C@@H]2C[C@]2(C)[C@H]1C	

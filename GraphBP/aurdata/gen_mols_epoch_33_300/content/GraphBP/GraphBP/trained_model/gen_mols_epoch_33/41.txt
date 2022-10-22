@@ -1,0 +1,1 @@
+CC[C@H](CO)CC[C@@H](C)CN[C@@H]1CC[C@H](N)C[C@H]2N[C@H]12	

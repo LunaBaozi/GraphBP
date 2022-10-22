@@ -1,0 +1,1 @@
+C[C@@H]1CC[C@@H]2[C@]34[C@]56CCCCS[C@@H](I)C[C@H](CCC5)[C@@]63CC[C@@]24C1	

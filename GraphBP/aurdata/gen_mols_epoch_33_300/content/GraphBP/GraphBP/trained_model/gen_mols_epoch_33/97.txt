@@ -1,0 +1,1 @@
+C=C(CC)[C@@H](C[C@@H]1CC[C@@H]2[C@@H]3O[C@@H]4[C@@H]5C[C@@H]6[C@@H](C[C@@H]7[C@@H]8C[C@@]867)[C@H]6C[C@@]27[C@@H]5[C@@]47[C@H](I)C[C@H](CCN)[C@H]([C@H]13)[C@@H]6C)[Si@@]1(O)[C@@H]2CC[C@@]21C	

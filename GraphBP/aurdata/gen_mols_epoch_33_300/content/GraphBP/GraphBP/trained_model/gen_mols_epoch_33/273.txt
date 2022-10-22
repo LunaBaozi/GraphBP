@@ -1,0 +1,1 @@
+CC[C@@H](CCCC[C@H]1[C@@H]2O[C@H]3O[C@@]3(CC(C)(C)COO)[C@@H]21)[C@@]1(C)CC2[C@H]3CN[C@H]3C[C@H]21	

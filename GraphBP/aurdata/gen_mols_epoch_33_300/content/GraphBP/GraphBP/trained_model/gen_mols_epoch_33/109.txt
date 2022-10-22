@@ -1,0 +1,1 @@
+C=C1C[C@]2(CCN[C@@H]3[C@H](CC)[C@H]3O)[C@@H](COCCC#CCC[C@H](CC)[C@@H]3[C@H]4C[C@@H]([C@H]5[As]6[C@H]7[C@H](CCCN)[C@@]756)CC[C@@H]5C[C@]543)[C@H]12	
