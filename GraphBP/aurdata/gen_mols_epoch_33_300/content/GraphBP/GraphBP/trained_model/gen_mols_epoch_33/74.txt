@@ -1,1 +1,0 @@
-CC[C@@]1(C)C[C@]2(C)CCC[C@@H](N([C@@H]3[C@@H]4C[C@@H]3[C@@H]3[C@@H]5CCC[C@H](C)C[C@H]6C[C@H]5[C@@H]3[C@H]64)[C@H]3[C@@H]4[C@H]([C@@]5([C@@H]6CNOC6)CN5)N=CN43)[C@H]12	

@@ -1,1 +1,0 @@
-CN[C@H]1[N][C@@](NCCC[C@@H]2CCCOC[C@@H]2[C@H]2C[C@@H]2[C@@H](N)OCCCCS)(N[C@@H](N)Cl)[N]1	

@@ -1,1 +1,0 @@
-C=CN(CON)[C@H](N=C(C(=N)CNCC1CCC1)N(N)C([NH])[NH])NSC	

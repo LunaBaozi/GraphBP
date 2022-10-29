@@ -1,1 +1,0 @@
-C[C@@H]1C[C@@]2(CC[C@H](C3CC3)C3(CC3)[C@@H]3C[C@H]13)[C@@H]1C[C@@]12O	

@@ -1,1 +1,0 @@
-CCC[C@@H](CC[C@@H](C[C@H](C)[C@H]1[C@@H](COC(C)C)[C@]2([C@H]3C[C@@]3(C)O)[C@H]3[C@@H](C)[C@H](C)C[C@@]132)N(CCC)[C@]12OCC[C@]13CN32)CC(C)C	

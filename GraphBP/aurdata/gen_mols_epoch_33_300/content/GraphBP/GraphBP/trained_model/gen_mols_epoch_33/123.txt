@@ -1,1 +1,0 @@
-C=C[C@H](C)[C@]1(C)[C@H]([C@H]2[C@@H](N[C@@H]3[C@@H](C)NN3C)[C@@H](C=O)[C@]2([C@H](C)CCCC[C@]2(C)[C@H]3[C@@H](CC)[C@H]32)[C@H](C)CC[C@H]2C[C@@H]3[C@@H](C)[C@@H]23)[C@H]1C	

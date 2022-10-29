@@ -1,1 +1,0 @@
-C=C(C)C[C@H]1OCCC[C@]23[C@H]4[C@@]25C[C@@]13C[C@@]1(CC[C@H](C)C2CC2)C[C@H]1C[C@@]45[C@H](C)NC1CC1	

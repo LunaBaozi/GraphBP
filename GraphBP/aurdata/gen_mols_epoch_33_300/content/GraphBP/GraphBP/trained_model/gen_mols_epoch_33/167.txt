@@ -1,1 +1,0 @@
-CC[C@H](CC1CC1)[C@H](O)C(=O)OC1CC1	

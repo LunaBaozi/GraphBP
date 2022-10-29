@@ -1,1 +1,0 @@
-CC=CCC[C@H]1CC[C@]23[N][C@H](NNC1)[As][C@]21CC13	

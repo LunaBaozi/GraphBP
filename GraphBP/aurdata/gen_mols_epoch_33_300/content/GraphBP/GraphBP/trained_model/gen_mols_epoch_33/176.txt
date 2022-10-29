@@ -1,1 +1,0 @@
-CC=CC=C[C@@H](Cl)[C@H](C[C@@H]1[C@H]2C[C@H]21)[C@@H]1O[C@@H]1O	

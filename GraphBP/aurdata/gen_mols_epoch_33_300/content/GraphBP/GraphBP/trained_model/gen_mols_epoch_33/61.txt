@@ -1,1 +1,0 @@
-CC[C@@]12C[C@@]13[C@H]([C@@]1(C)C[C@@H]4[C@H](C)[C@](C)(CC(=O)O)C[C@H]4C[C@H]1C)[C@]31[C@H]2[C@H]1O	

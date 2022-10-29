@@ -1,1 +1,0 @@
-CCCC[C@@H]1[C@H]2CCCN3[C@H]4[C@]12[C@]43[C@H](C[C@@]12C[C@@H]1[C@@H]2C)[C@@H](CF)[C@@H]1[C@@H]2SC[C@@]21C	

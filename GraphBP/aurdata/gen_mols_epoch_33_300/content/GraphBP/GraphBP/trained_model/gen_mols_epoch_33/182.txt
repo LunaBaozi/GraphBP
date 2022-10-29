@@ -1,1 +1,0 @@
-CC(C)CCCC(=O)C[C@H]1O[C@H]2O[C@]3(C[C@H]1C)O[C@H]23	

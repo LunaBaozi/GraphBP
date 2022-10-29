@@ -1,1 +1,0 @@
-CC(C)C[C@](Cl)(C[C@@H](C)CCCCC1CCC2(CC1)CC2)[C@H](N)O	

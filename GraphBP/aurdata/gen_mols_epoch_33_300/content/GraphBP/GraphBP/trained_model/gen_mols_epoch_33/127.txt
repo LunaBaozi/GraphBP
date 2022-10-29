@@ -1,1 +1,0 @@
-CC[C@H]1[C@H]2CC[C@]12[C@H]1[C@@]2(O)[C@H](C)[C@]12O[Al]([C@@H](C)O)S(O)(O)CCC1C[C@H]1CCCC[C@]12C[C@@H]1[C@H](C=O)N2	

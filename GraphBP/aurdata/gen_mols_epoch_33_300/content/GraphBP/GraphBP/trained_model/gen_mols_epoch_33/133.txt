@@ -1,1 +1,0 @@
-C=C[C@@H]1CCCCCCCC[C@@H]2[C@H](CC)CC[C@H](C[C@]3(CCC)C[C@]45[C@H]6[C@@H]3[C@H]3C[C@@H](CCO[C@@H]4CC)[C@@]635)CC(=C)CC[C@@H]2C1	

@@ -1,1 +1,0 @@
-CC(C)(C[C@H]1C[C@@H]1N1SC[C@@H]1N)C[C@@H]1[C@@H]2[C@H]3[C@H](CCl)[C@@]3(C)C[C@H]12	

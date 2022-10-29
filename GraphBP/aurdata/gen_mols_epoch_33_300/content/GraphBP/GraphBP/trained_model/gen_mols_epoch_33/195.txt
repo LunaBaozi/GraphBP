@@ -1,1 +1,0 @@
-CCC=CC[C@H]1[C@@H]([C@@H]2CC[C@H]3CN2[C@H]3C)[C@@H]2N1[C@]13N[C@H]1N23	

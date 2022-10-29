@@ -1,1 +1,0 @@
-C=CCCCCCCC[C@@H]1[C@H]2N[C@@H]3[C@H](CC[C@@H](NOCC)[C@H]4C[C@H]5[C@@]46[C@]47C[C@H]4[C@]567)[C@@H]3[C@@H]12	

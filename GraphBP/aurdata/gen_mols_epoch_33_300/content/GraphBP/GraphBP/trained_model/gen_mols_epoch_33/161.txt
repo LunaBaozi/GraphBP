@@ -1,1 +1,0 @@
-CC[C@@]1(C)C[C@H]1CCC=CCC=N	

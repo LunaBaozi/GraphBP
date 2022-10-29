@@ -1,1 +1,0 @@
-C=C(C)NCC[C@@](N)(CCO)[C@H]1N[C@H]2C[C@H]([C@@H]3C[C@H](I)N[C@H]4[C@H](C)[C@@H](C[C@H]5C[C@@H]5C)[C@H]4CCCCC[C@@H](CC)C3)OCCC[C@@H]21	

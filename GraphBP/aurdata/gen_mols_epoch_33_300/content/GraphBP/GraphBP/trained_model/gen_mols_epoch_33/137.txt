@@ -1,1 +1,0 @@
-C=C[C@@H]1[C@H]2C[C@H]3[C@@H]4[C@@]3([C@H](COCCS)CB3CCNO3)C[C@]4([C@H]3C[C@@H]3C[C@H]3C[C@H](C)CC[C@]4(O)C[C@@H]5[C@@]6(C[C@@H]34)[C@]34[C@H](N3N)[C@]546)N12	

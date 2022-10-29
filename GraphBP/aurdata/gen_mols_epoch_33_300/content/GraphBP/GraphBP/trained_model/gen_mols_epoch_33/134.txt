@@ -1,1 +1,0 @@
-CC[C@@H]1C[C@H](C2(C)CC2)[C@H]1C[C@@]12CC[N][C@@H]([N][C@@H]3C[C@@H]4C[C@@H]5[C@H](C6CC6)[C@H]([C@]6(N)C[C@H]6CC)[C@@H]5[C@@]45C[C@@H]35)OC[C@@H]([C@H]3C[C@H]31)[C@H]2O	

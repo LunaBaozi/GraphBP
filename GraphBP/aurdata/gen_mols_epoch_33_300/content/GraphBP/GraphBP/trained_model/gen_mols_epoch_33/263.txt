@@ -1,1 +1,0 @@
-N=C[C@H](O)[C@@H](CN=O)[C@H]1C=CCO[C@@H](N)N1	

@@ -1,1 +1,0 @@
-CC[C@@H]1CC[C@]2(C[C@H](OCC[C@@H]3[C@H]4CCC[C@@H]3C4)[C@@]23[C@@H](C(C)=O)C[C@H]3C2CC2)C1	

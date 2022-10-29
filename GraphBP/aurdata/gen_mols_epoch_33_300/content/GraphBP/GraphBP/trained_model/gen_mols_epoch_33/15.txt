@@ -1,1 +1,0 @@
-O=C1O[C@@H](C2CC2)[C@@H]1CCC1CC1	

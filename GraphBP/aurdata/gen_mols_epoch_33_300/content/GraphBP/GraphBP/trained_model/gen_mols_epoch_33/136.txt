@@ -1,1 +1,0 @@
-C=CC[C@H](C[C@@H](C=CC1CC1)[C@@H]1CN(C)[C@]1(CCC)C(=C)C)N(C[C@H]1[C@@H]([C@@H]2NCC[C@@H]2O)C2=CNC[C@H]([Mg][SeH])[C@@H]21)C1(C)CC1	
