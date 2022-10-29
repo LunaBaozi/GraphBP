@@ -1,16 +1,14 @@
 import os 
 import shutil 
 from rdkit import Chem
-# from add_hydrogens import converter
-# from add_hydrogens import addHs2molfromsmiles
 
 
 aur_protein_pdb = '4af3A'
 rec_name = '4af3_A_rec'
 aurkb_file = '/home/luna/Documents/Coding/GraphBP/GraphBP/aurdata/AURKB_HUMAN_54_344_0/4af3_A_rec.pdb'
-gen_ligands_path = '/home/luna/Documents/Coding/GraphBP/GraphBP/aurdata/gen_mols_epoch_33_300/content/GraphBP/GraphBP/trained_model/gen_mols_epoch_33/'
-aurkb_gen_complex = '/home/luna/Documents/Coding/GraphBP/GraphBP/aurdata/aurkb_gen_complex_300'
-write_dir = '/home/luna/Documents/Coding/GraphBP/GraphBP/aurdata/aurkb_gen_complex_300/molsHs_added'
+gen_ligands_path = '/home/luna/Documents/Coding/GraphBP/GraphBP/aurdata/gen_mols_epoch_33_1k/content/GraphBP/GraphBP/trained_model/gen_mols_epoch_33/'
+aurkb_gen_complex = '/home/luna/Documents/Coding/GraphBP/GraphBP/aurdata/aurkb_gen_complex_1k'
+write_dir = '/home/luna/Documents/Coding/GraphBP/GraphBP/aurdata/aurkb_gen_complex_1k/molsHs_added'
 
 
 
@@ -48,7 +46,7 @@ def createEquiBind_dataset():
 
     os.makedirs(os.path.dirname(write_dir), exist_ok=True)
 
-    for i in range(1, 301):
+    for i in range(1, 1001):   # NEED TO MAKE IT UNIVERSAL
         os.makedirs(os.path.join(aurkb_gen_complex, f'{aur_protein_pdb}{i}'))
 
         subfolder = os.path.join(aurkb_gen_complex, f'{aur_protein_pdb}{i}')

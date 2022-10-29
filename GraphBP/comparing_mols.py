@@ -26,31 +26,13 @@ def addHs2molfromsmiles(smiles, filename='Hmol.sdf', output_type=None):
     return  
 
 
-# GREAT! THIS WORKS FOR COMPARING MOLECULES THAT HAVE DIFFERENT SMILES
-# myPattern = 'CN1CCN(CC1)c1nc(Sc2ccc(cc2)NC(=O)C2CC2)nc(c1)Nc1[nH]nc(c1)C'
-# myMolecule = '[H]c1c(N([H])c2c([H])c(C([H])([H])[H])nn2[H])nc(Sc2c([H])c([H])c(N([H])C(=O)C3([H])C([H])([H])C3([H])[H])c([H])c2[H])nc1N1C([H])([H])C([H])([H])N(C([H])([H])[H])C([H])([H])C1([H])[H]'
-# a = Chem.CanonSmiles(myPattern)
-# b = Chem.CanonSmiles(myMolecule)
-# print(a)
-# print(b)
-# print(a==b)
-
-
-# known_aurkb_inhibitors = pd.read_csv('/home/luna/Documents/Coding/GraphBP/GraphBP/aurkb_inhibitors.csv', header=0)
-# # print(type(known_aurkb_inhibitors))  # pandas dataframe
-# # known_aurkb_inhibitors.to_dict(orient='list')
+# ciau = pd.read_csv('/home/luna/Documents/Coding/GraphBP/GraphBP/aurkb_inhibitors.csv', header=0)
+# ciau2 = pd.read_csv('/home/luna/Documents/Coding/GraphBP/GraphBP/aurkb_inhibitors.csv', header=0)
 # ciao = dict(zip(known_aurkb_inhibitors.inhibitor, known_aurkb_inhibitors.smiles))
 # aurkb_inhibitors = copy.deepcopy(ciao)
 # aurkb_inhibitors = {key:[] for key in aurkb_inhibitors}
 
 
-known_aurkb_inhibitors = pd.read_csv('/home/luna/Documents/Coding/GraphBP/GraphBP/aurdata/aurorakinaseBinteractions.csv', header=0)
-inhibitors_dict = dict(zip(known_aurkb_inhibitors.iloc[:, 3], known_aurkb_inhibitors.iloc[:, 7]))
-correspondence_dict = copy.deepcopy(inhibitors_dict)
-correspondence_dict = {key:[] for key in correspondence_dict}
-
-# print(inhibitors_dict)
-# print(list(known_aurkb_inhibitors.columns))
 # print(known_aurkb_inhibitors.iloc[:, 0])    # target id
 # print(known_aurkb_inhibitors.iloc[:, 1])    # target uniprot
 # print(known_aurkb_inhibitors.iloc[:, 2])    # target species
@@ -59,11 +41,11 @@ correspondence_dict = {key:[] for key in correspondence_dict}
 # print(known_aurkb_inhibitors.iloc[:, 5])    # ligand species
 # print(known_aurkb_inhibitors.iloc[:, 6])    # ligand pubchem cid
 # print(known_aurkb_inhibitors.iloc[:, 7])    # smiles
-# print(known_aurkb_inhibitors.iloc[:, 8])
-# print(known_aurkb_inhibitors.iloc[:, 9])
-# print(known_aurkb_inhibitors.iloc[:, 10])
-# print(known_aurkb_inhibitors.iloc[:, 11])
 
+known_aurkb_inhibitors = pd.read_csv('/home/luna/Documents/Coding/GraphBP/GraphBP/aurdata/aurorakinaseBinteractions.csv', header=0)
+inhibitors_dict = dict(zip(known_aurkb_inhibitors.iloc[:, 3], known_aurkb_inhibitors.iloc[:, 7]))
+# correspondence_dict = copy.deepcopy(inhibitors_dict)
+# correspondence_dict = {key:[] for key in correspondence_dict}
 
 
 def tanimoto_calc(smi1, smi2):
@@ -81,10 +63,10 @@ def tanimoto_calc(smi1, smi2):
 
 def compare_mol_smiles():
 
-    tanimoto_basic = list()
-    tanimoto_canon = list()
+    tanimoto_basic = [['knowninhib_name', 'knowninhib_smiles', 'genmol_name', 'genmol_smiles', 'simil']]
+    tanimoto_canon = [['knowninhib_name', 'knowninhib_smiles', 'genmol_name', 'genmol_smiles', 'simil']]
 
-    gen_mols_dir = './aurdata/aurkb_gen_complex'
+    gen_mols_dir = './aurdata/aurkb_gen_complex_1k'
 
     for gen_mol_dir in os.listdir(gen_mols_dir):
         rel_path = os.path.join(gen_mols_dir, gen_mol_dir)
@@ -105,11 +87,11 @@ def compare_mol_smiles():
 
                             # using basic smiles
                             simil = tanimoto_calc(basic_smiles_pattern, basic_smiles_test)
-                            tanimoto_basic.append([name, basic_smiles_test, basic_smiles_pattern, simil])
+                            tanimoto_basic.append([name, basic_smiles_test, filename, basic_smiles_pattern, simil])
 
                             # using canon smiles
                             simil = tanimoto_calc(canon_smiles_pattern, canon_smiles_test)
-                            tanimoto_canon.append([name, canon_smiles_pattern, canon_smiles_test, simil])
+                            tanimoto_canon.append([name, canon_smiles_test, filename, canon_smiles_pattern, simil])
 
 
                             # if basic_smiles_pattern == basic_smiles_test:
@@ -123,20 +105,25 @@ def compare_mol_smiles():
                             
                     # print('None')
 
-    return tanimoto_basic, tanimoto_canon #matches
+    return tanimoto_basic, tanimoto_canon 
 
 
 
 
 tanimoto_basic, tanimoto_canon = compare_mol_smiles()
 
-# # for tlist in tanimoto:
-# #     print(*tlist)
-
-with open('./aurdata/results/output_tanimoto_basic.csv', 'w', newline='') as csvfile1:
+with open('./aurdata/results/output_tanimoto_basic_1k.csv', 'w', newline='') as csvfile1:
     writer = csv.writer(csvfile1)
     writer.writerows(tanimoto_basic)
 
-with open('./aurdata/results/output_tanimoto_canon.csv', 'w', newline='') as csvfile2:
+with open('./aurdata/results/output_tanimoto_canon_1k.csv', 'w', newline='') as csvfile2:
     writer = csv.writer(csvfile2)
     writer.writerows(tanimoto_canon)
+
+
+# # INTERESSANTE! A e B hanno tanimoto coeff di solo 0.153
+# A = 'CN1CCN(CC1)c1nc(Sc2ccc(cc2)NC(=O)C2CC2)nc(c1)Nc1[nH]nc(c1)C'
+# B = 'CCS(=O)(=O)Nc1ccc2c(c1)C(=C(c1ccccc1)Nc1ccc(cc1)CN1CCCCC1)C(=O)N2'
+# C = 'CCS(=O)(=O)Nc1ccc2c(c1)C(=C(c1ccccc1)Nc1ccc(cc1)CN1CCCCC1)C(=O)N2'
+
+# print(tanimoto_calc(B, C))
