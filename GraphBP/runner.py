@@ -159,6 +159,9 @@ class Runner():
             # print(rec_atom_type.shape)
             # print(rec_position.shape)
             
+
+            # Check this out, might be useful to generate Aurora ligands at different locations, 
+            # not only on the binding site, but maybe also at the ATP binding site or allosteric sites
             if known_binding_site:
                 supp = Chem.SDMolSupplier()
                 print("Generate molecules with given binding site infomation...")
@@ -186,7 +189,7 @@ class Runner():
             
             
             num_remain = num_gen
-            one_time_gen = self.conf['chunk_size']
+            one_time_gen = self.conf['chunk_size']  # set to 20 (?)
             type_to_atomic_number_dict = {atomic_num_to_type[k]:k for k in atomic_num_to_type}
             type_to_atomic_number = np.zeros([max(type_to_atomic_number_dict.keys())+1], dtype=int)
             for k in type_to_atomic_number_dict:

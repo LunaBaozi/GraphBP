@@ -1,14 +1,19 @@
+# NOTE: there is a problem. OpenBabel cannot be installed by pip, 
+# but it only works from conda. Have to try similarity calculation procedure
+# suggested by Todeschini on colab maybe, or we need to create a venv
+
 import os, copy, csv
 import pandas as pd
 from rdkit import Chem
 from rdkit.Chem import AllChem
 from rdkit import DataStructs
+from cinfony import pybel, rdk, cdk
 
 
 known_aurk_inhibitors_csv = pd.read_csv('/home/luna/Documents/Coding/GraphBP/GraphBP/aurdata/aurkb_inhibitors_copy.csv', header=0)
 # ciau2 = pd.read_csv('/home/luna/Documents/Coding/GraphBP/GraphBP/aurdata/aurkb_inhibitors_copy.csv', header=0)
 known_aurk_inhibitors = dict(zip(known_aurk_inhibitors_csv.inhibitor, known_aurk_inhibitors_csv.smiles))
-known_aurk_inhibitors2 = dict(zip(known_aurk_inhibitors_csv.inhibitor, known_aurk_inhibitors_csv.smiles))
+# known_aurk_inhibitors2 = dict(zip(known_aurk_inhibitors_csv.inhibitor, known_aurk_inhibitors_csv.smiles))
 
 
 def tanimoto_calc(smi1, smi2):
@@ -24,65 +29,65 @@ def tanimoto_calc(smi1, smi2):
 
 
 
-def compare_ciaus(dict1, dict2):
+# def compare_ciaus(dict1, dict2):
 
-    tanimoto = list()
+#     tanimoto = list()
 
-    for name, smile in dict1.items():
-        for name2, smile2 in dict2.items():
+#     for name, smile in dict1.items():
+#         for name2, smile2 in dict2.items():
             
-            if name != name2:
-                simil = tanimoto_calc(smile, smile2)
-                if [name2, name, simil] not in tanimoto:
-                    tanimoto.append([name, name2, simil])
+#             if name != name2:
+#                 simil = tanimoto_calc(smile, smile2)
+#                 if [name2, name, simil] not in tanimoto:
+#                     tanimoto.append([name, name2, simil])
 
-    return tanimoto
-
-
-
-with open('./aurdata/results/output_tanimoto_knownaurkinhibitors.csv', 'w', newline='') as csvfile1:
-    writer = csv.writer(csvfile1)
-    writer.writerows(compare_ciaus(known_aurk_inhibitors, known_aurk_inhibitors2))
+#     return tanimoto
 
 
+
+# with open('./aurdata/results/output_tanimoto_knownaurkinhibitors.csv', 'w', newline='') as csvfile1:
+#     writer = csv.writer(csvfile1)
+#     writer.writerows(compare_ciaus(known_aurk_inhibitors, known_aurk_inhibitors2))
 
 
 
 
 
-def compare_mol_smiles():
 
-    tanimoto_basic = list()
-    tanimoto_canon = list()
 
-    gen_mols_dir = './aurdata/aurkb_gen_complex_1k'
+# def compare_mol_smiles():
 
-    for gen_mol_dir in os.listdir(gen_mols_dir):
-        rel_path = os.path.join(gen_mols_dir, gen_mol_dir)
+#     tanimoto_basic = list()
+#     tanimoto_canon = list()
+
+#     gen_mols_dir = './aurdata/aurkb_gen_complex_1k'
+
+#     for gen_mol_dir in os.listdir(gen_mols_dir):
+#         rel_path = os.path.join(gen_mols_dir, gen_mol_dir)
         
-        for filename in os.listdir(rel_path):
-            if 'ligand' in filename:
-                sppl = Chem.SDMolSupplier(os.path.join(rel_path, filename)) 
+#         for filename in os.listdir(rel_path):
+#             if 'ligand' in filename:
+#                 sppl = Chem.SDMolSupplier(os.path.join(rel_path, filename)) 
                 
-                for mol in sppl:
-                    if mol is not None:  # some compounds cannot be loaded.
-                        basic_smiles_pattern = Chem.MolToSmiles(mol)
-                        canon_smiles_pattern = Chem.CanonSmiles(basic_smiles_pattern)
+#                 for mol in sppl:
+#                     if mol is not None:  # some compounds cannot be loaded.
+#                         basic_smiles_pattern = Chem.MolToSmiles(mol)
+#                         canon_smiles_pattern = Chem.CanonSmiles(basic_smiles_pattern)
                         
-                        for name, compound in inhibitors_dict.items():
-                            # print(compound)
-                            basic_smiles_test = str(compound)
-                            canon_smiles_test = Chem.CanonSmiles(compound)
+#                         for name, compound in inhibitors_dict.items():
+#                             # print(compound)
+#                             basic_smiles_test = str(compound)
+#                             canon_smiles_test = Chem.CanonSmiles(compound)
 
-                            # using basic smiles
-                            simil = tanimoto_calc(basic_smiles_pattern, basic_smiles_test)
-                            tanimoto_basic.append([name, basic_smiles_test, basic_smiles_pattern, simil])
+#                             # using basic smiles
+#                             simil = tanimoto_calc(basic_smiles_pattern, basic_smiles_test)
+#                             tanimoto_basic.append([name, basic_smiles_test, basic_smiles_pattern, simil])
 
-                            # using canon smiles
-                            simil = tanimoto_calc(canon_smiles_pattern, canon_smiles_test)
-                            tanimoto_canon.append([name, canon_smiles_pattern, canon_smiles_test, simil])
+#                             # using canon smiles
+#                             simil = tanimoto_calc(canon_smiles_pattern, canon_smiles_test)
+#                             tanimoto_canon.append([name, canon_smiles_pattern, canon_smiles_test, simil])
 
-    return tanimoto_basic, tanimoto_canon #matches
+#     return tanimoto_basic, tanimoto_canon #matches
 
 
 
@@ -97,3 +102,48 @@ def compare_mol_smiles():
 #     writer = csv.writer(csvfile2)
 #     writer.writerows(tanimoto_canon)
 
+
+# ------------------------------------------------------------------------------------------------------------------
+# LET'S TRY TO GENERATE FINGERPRINTS WITH CINFONY
+
+def similarity_cinfony():
+
+    tanimoto = [['knowninhib_name', 'knowninhib_smiles', 'genmol_name', 'genmol_smiles', 'tanimoto_simil', 'tanimoto_simil_cinfony']]
+
+
+    gen_mols_dir = '/home/luna/Documents/Coding/GraphBP/GraphBP/aurdata/gen_mols_epoch_33_1k/content/GraphBP/GraphBP/trained_model/gen_mols_epoch_33'
+
+    # for gen_mol_dir in os.listdir(gen_mols_dir):
+    #     rel_path = os.path.join(gen_mols_dir, gen_mol_dir)
+        
+    for filename in os.listdir(gen_mols_dir):
+        if 'sdf' in filename:
+            sppl = Chem.SDMolSupplier(os.path.join(gen_mols_dir, filename)) 
+                
+            for mol in sppl:
+                if mol is not None:  # some compounds cannot be loaded.
+                    smiles_pattern = Chem.MolToSmiles(mol)
+                        
+                    for name, smile in known_aurk_inhibitors.items():
+                        # print(compound)
+                        smiles_test = str(smile)
+
+                        smiles_list = [smiles_pattern, smiles_test]
+                        mols = [pybel.readstring('smi', x) for x in smiles_list]
+                        fps = [x.calcfp() for x in mols]
+                        tanimoto_cinfony = fps[0] | fps[1]
+
+
+                        # using basic smiles
+                        simil = tanimoto_calc(smiles_pattern, smiles_test)
+                        tanimoto.append([name, smiles_test, smiles_pattern, simil, tanimoto_cinfony])
+
+                            
+    return tanimoto #matches
+
+
+hello = similarity_cinfony()
+
+with open('./hello_output.csv', 'w', newline='') as csvfile1:
+    writer = csv.writer(csvfile1)
+    writer.writerows(hello)
