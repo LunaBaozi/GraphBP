@@ -14,9 +14,20 @@ import warnings
 from Bio.PDB.PDBExceptions import PDBConstructionWarning
 from rdkit import Chem
 
-atomic_num_to_type = {5:0, 6:1, 7:2, 8:3, 9:4, 12:5, 13:6, 14:7, 15:8, 16:9, 17:10, 21:11, 23:12, 26:13, 29:14, 30:15, 33:16, 34:17, 35:18, 39:19, 42:20, 44:21, 45:22, 51:23, 53:24, 74:25, 79:26}
+atomic_num_to_type = {5:0, 6:1, 7:2, 8:3, 9:4, 
+                      12:5, 13:6, 14:7, 15:8, 
+                      16:9, 17:10, 21:11, 23:12, 
+                      26:13, 29:14, 30:15, 33:16, 
+                      34:17, 35:18, 39:19, 42:20, 
+                      44:21, 45:22, 51:23, 53:24, 
+                      74:25, 79:26}
 
-atomic_element_to_type = {'C':27, 'N':28, 'O':29, 'NA':30, 'MG':31, 'P':32, 'S':33, 'CL':34, 'K':35, 'CA':36, 'MN':37, 'CO':38, 'CU':39, 'ZN':40, 'SE':41, 'CD':42, 'I':43, 'CS':44, 'HG':45}
+atomic_element_to_type = {'C':27, 'N':28, 'O':29, 
+                          'NA':30, 'MG':31, 'P':32, 
+                          'S':33, 'CL':34, 'K':35, 
+                          'CA':36, 'MN':37, 'CO':38, 
+                          'CU':39, 'ZN':40, 'SE':41, 
+                          'CD':42, 'I':43, 'CS':44, 'HG':45}
 
 class Runner():
     def __init__(self, conf, out_path=None):
@@ -117,13 +128,13 @@ class Runner():
                 contact_th=0.5, 
                 add_final=False, 
                 contact_prob=False, 
-                data_root='./aurdata', 
-                data_file='./aurdata/selected_test_targets_aurk_refined_copy.types', 
+                data_root='./datav11/crossdock2020',    
+                data_file='./datav11/crossdock2020/selected_test_target_aurk.types',
                 atomic_num_to_type=atomic_num_to_type, 
                 atomic_element_to_type = atomic_element_to_type, 
                 known_binding_site=False, 
-                binding_site_range=15.0):
-        print('im here!')
+                binding_site_range=15.0):  # CORRECT HERE
+        # print('im here!')
         data_cols = [
             'low_rmsd',
             'true_aff',
@@ -144,8 +155,8 @@ class Runner():
             example = data_lines.iloc[index]
             rec_src = example.rec_src
             lig_src = example.lig_src.rsplit('.', 1)[0]
-            print(rec_src)
-            print(lig_src)
+            # print(rec_src)
+            # print(lig_src)
             print("=============")
             
             with warnings.catch_warnings():
@@ -188,7 +199,7 @@ class Runner():
                 del supp
             
             
-            num_remain = num_gen
+            num_remain = num_gen   # set to how many mols we want to generate
             one_time_gen = self.conf['chunk_size']  # set to 20 (?)
             type_to_atomic_number_dict = {atomic_num_to_type[k]:k for k in atomic_num_to_type}
             type_to_atomic_number = np.zeros([max(type_to_atomic_number_dict.keys())+1], dtype=int)

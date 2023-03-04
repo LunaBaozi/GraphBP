@@ -6,7 +6,8 @@ import os
 binding_site_range = 15.0
 
 
-out_path = 'trained_model'
+# out_path = 'trained_model'
+out_path = 'prima_prova_di_training'
 if not os.path.isdir(out_path):
     os.mkdir(out_path)
 

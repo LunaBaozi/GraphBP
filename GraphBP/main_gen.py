@@ -17,6 +17,8 @@ min_atoms = 10
 max_atoms = 45
 focus_th = 0.5
 contact_th = 0.5
+
+# OCCHIO QUA SOTTO
 num_gen = 1000 # number generate for each reference rec-lig pair
 
 trained_model_path = 'trained_model'

@@ -87,5 +87,6 @@ if __name__ == '__main__':
         pct = 100*(i+1)/n_lines
         print(f'[{pct:.2f}%] ', end='')
         sdf_file = os.path.join(data_root, line.split()[4].rsplit('.', 1)[0]) # Use .sdf file instead of .sdf.gz file
+        
         find_and_split_sdf(sdf_file)
     print('[100.00%] Done')
