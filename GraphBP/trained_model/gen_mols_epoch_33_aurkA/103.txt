@@ -1,0 +1,1 @@
+C=C[C@H](CC=CC)C[C@H](CCC)C(=O)[C@H]1[C@@H]2[C@@H]3[C@H]4[C@H]5O[C@]36[C@@H]4[Si@]5(O)C(F)(F)[C@H]3[C@@H](CCN[C@]126)CC3(C)C	

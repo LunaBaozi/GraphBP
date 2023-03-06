@@ -1,0 +1,1 @@
+CC(CN)CC([O])[S](O)OO	

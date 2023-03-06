@@ -1,0 +1,1 @@
+C=CCCC=C[C@H](N)CC[C@@H](CCCC(O)(O)OC)O[C@@H](OOO)O[C@H](CF)CO[Se]Cl	

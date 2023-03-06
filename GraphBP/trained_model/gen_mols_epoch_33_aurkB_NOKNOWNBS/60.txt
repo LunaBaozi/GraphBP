@@ -1,0 +1,1 @@
+CC(CI)C(C)CC(NC1[N]C(N(C)CCO)[N]1)C(=O)O	

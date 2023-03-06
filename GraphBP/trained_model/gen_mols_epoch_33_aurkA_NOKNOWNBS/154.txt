@@ -1,0 +1,1 @@
+CC[C@@H]1[C@H]2[C@@H]1C[C@H]1[C@@H]3C[C@]13[C@H]2C=CC(C)=C[C@H]1[C@H]2N[C@]12O	

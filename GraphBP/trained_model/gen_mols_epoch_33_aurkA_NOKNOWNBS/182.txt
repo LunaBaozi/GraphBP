@@ -1,0 +1,1 @@
+CC=CC=CCCB(O)[C@@]1(OO)C[C@@H]1O	

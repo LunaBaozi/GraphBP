@@ -1,0 +1,1 @@
+C=C[C@@H](CNN[C@@H](CN[C@H]1N[C@H]2C[C@H]21)N=CC(=C)[C@@H](C=O)CCC)C1CC1	

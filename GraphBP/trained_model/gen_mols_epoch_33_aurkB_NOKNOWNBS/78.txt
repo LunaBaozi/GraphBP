@@ -1,0 +1,1 @@
+CCC[C@@H]1[C@H](CCC=CCCCC=C[C@H]2C[C@@H]2C[C@@H](C)CO[C@@H]2[C@H]3C(CCC(O)=C=O)=CC[C@H]4C[C@H](C)[C@]342)[C@@H]1CCC	

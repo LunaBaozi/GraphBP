@@ -1,0 +1,1 @@
+C=C1C[C@@H](I)C[C@@H]2CC[C@]3(CC=CC[C@]45C[C@]46CCCCC[C@@H]4C[C@]456)C[C@]3(O)N[C@H]12	

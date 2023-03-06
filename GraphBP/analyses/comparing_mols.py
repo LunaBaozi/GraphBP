@@ -42,8 +42,11 @@ def addHs2molfromsmiles(smiles, filename='Hmol.sdf', output_type=None):
 # print(known_aurkb_inhibitors.iloc[:, 6])    # ligand pubchem cid
 # print(known_aurkb_inhibitors.iloc[:, 7])    # smiles
 
-known_aurkb_inhibitors = pd.read_csv('/home/luna/Documents/Coding/GraphBP/GraphBP/aurdata/aurorakinaseBinteractions.csv', header=0)
-inhibitors_dict = dict(zip(known_aurkb_inhibitors.iloc[:, 3], known_aurkb_inhibitors.iloc[:, 7]))
+# known_aurkb_inhibitors = pd.read_csv('/home/luna/Documents/Coding/GraphBP/GraphBP/aurdata/aurorakinaseBinteractions.csv', header=0)
+aurkA_inhibitors = pd.read_csv('./aurorakinaseAinteractions.csv')
+aurkB_inhibitors = pd.read_csv('./aurorakinaseBinteractions.csv')
+aurkA_inhibitors_dict = dict(zip(aurkA_inhibitors.iloc[:, 3], aurkA_inhibitors.iloc[:, 7]))
+aurkB_inhibitors_dict = dict(zip(aurkB_inhibitors.iloc[:, 3], aurkB_inhibitors.iloc[:, 7]))
 # correspondence_dict = copy.deepcopy(inhibitors_dict)
 # correspondence_dict = {key:[] for key in correspondence_dict}
 
@@ -61,15 +64,15 @@ def tanimoto_calc(smi1, smi2):
 
 
 
-def compare_mol_smiles():
+def compare_mol_smiles(gen_mols_dir, inhibitors_dict):
 
-    tanimoto_basic = [['knowninhib_name', 'knowninhib_smiles', 'genmol_name', 'genmol_smiles', 'simil']]
+    # tanimoto_basic = [['knowninhib_name', 'knowninhib_smiles', 'genmol_name', 'genmol_smiles', 'simil']]
     tanimoto_canon = [['knowninhib_name', 'knowninhib_smiles', 'genmol_name', 'genmol_smiles', 'simil']]
 
-    gen_mols_dir = './aurdata/aurkb_gen_complex_1k'
+    # gen_mols_dir = './aurdata/aurkb_gen_complex_1k'
 
-    for gen_mol_dir in os.listdir(gen_mols_dir):
-        rel_path = os.path.join(gen_mols_dir, gen_mol_dir)
+    for gen_complex_dir in os.listdir(gen_mols_dir):
+        rel_path = os.path.join(gen_mols_dir, gen_complex_dir)
         
         for filename in os.listdir(rel_path):
             if 'ligand' in filename:
@@ -86,8 +89,8 @@ def compare_mol_smiles():
                             canon_smiles_test = Chem.CanonSmiles(compound)
 
                             # using basic smiles
-                            simil = tanimoto_calc(basic_smiles_pattern, basic_smiles_test)
-                            tanimoto_basic.append([name, basic_smiles_test, filename, basic_smiles_pattern, simil])
+                            # simil = tanimoto_calc(basic_smiles_pattern, basic_smiles_test)
+                            # tanimoto_basic.append([name, basic_smiles_test, filename, basic_smiles_pattern, simil])
 
                             # using canon smiles
                             simil = tanimoto_calc(canon_smiles_pattern, canon_smiles_test)
@@ -105,20 +108,44 @@ def compare_mol_smiles():
                             
                     # print('None')
 
-    return tanimoto_basic, tanimoto_canon 
+    return tanimoto_canon   #tanimoto_basic, 
 
 
 
+aurkA_gen_mols = './results/AURKA_GEN_COMPLEX'
+aurkB_gen_mols = './results/AURKB_GEN_COMPLEX'
+aurkA_NOBS_gen_mols = './results/AURKA_NOBS_GEN_COMPLEX'
+aurkB_NOBS_gen_mols = './results/AURKB_NOBS_GEN_COMPLEX'
 
-tanimoto_basic, tanimoto_canon = compare_mol_smiles()
+tanimoto_canon_A = compare_mol_smiles(aurkA_gen_mols, aurkA_inhibitors_dict)
+tanimoto_canon_B = compare_mol_smiles(aurkB_gen_mols, aurkB_inhibitors_dict)
+tanimoto_canon_A_nobs = compare_mol_smiles(aurkA_NOBS_gen_mols, aurkA_inhibitors_dict)
+tanimoto_canon_B_nobs = compare_mol_smiles(aurkB_NOBS_gen_mols, aurkB_inhibitors_dict)
 
-with open('./aurdata/results/output_tanimoto_basic_1k.csv', 'w', newline='') as csvfile1:
-    writer = csv.writer(csvfile1)
-    writer.writerows(tanimoto_basic)
+with open('./results/tanimoto_simil_AURKA.csv', 'w', newline='') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerows(tanimoto_canon_A)
 
-with open('./aurdata/results/output_tanimoto_canon_1k.csv', 'w', newline='') as csvfile2:
-    writer = csv.writer(csvfile2)
-    writer.writerows(tanimoto_canon)
+with open('./results/tanimoto_simil_AURKB.csv', 'w', newline='') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerows(tanimoto_canon_B)
+
+with open('./results/tanimoto_simil_AURKA_NOBS.csv', 'w', newline='') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerows(tanimoto_canon_A_nobs)
+
+with open('./results/tanimoto_simil_AURKB_NOBS.csv', 'w', newline='') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerows(tanimoto_canon_B_nobs)
+
+
+# with open('./aurdata/results/output_tanimoto_basic_1k.csv', 'w', newline='') as csvfile1:
+#     writer = csv.writer(csvfile1)
+#     writer.writerows(tanimoto_basic)
+
+# with open('./aurdata/results/output_tanimoto_canon_1k.csv', 'w', newline='') as csvfile2:
+#     writer = csv.writer(csvfile2)
+#     writer.writerows(tanimoto_canon)
 
 
 # # INTERESSANTE! A e B hanno tanimoto coeff di solo 0.153

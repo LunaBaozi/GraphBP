@@ -1,0 +1,1 @@
+C[C@H]1CCC[C@H]2C[C@@]12CCC=C[C@@H]1[C@H]2[C@H](C[C@@H]3CC=CC[C@H]3F)[C@H]21	

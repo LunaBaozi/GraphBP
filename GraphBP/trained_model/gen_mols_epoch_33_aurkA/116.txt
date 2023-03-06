@@ -1,0 +1,1 @@
+CC=C1[C@@]2(CCC[C@@]13[C@H]1[C@@H](C)[C@H]13)CC[C@@H]([C@@H]([Mg][C@H](C[C@@H]1C[C@H]3[C@H](C)[C@H]([C@H](C)N(C)N)[C@@H]13)O[C@H]1CCC[C@H]3O[C@@H]13)[C@H](C)O)C2	

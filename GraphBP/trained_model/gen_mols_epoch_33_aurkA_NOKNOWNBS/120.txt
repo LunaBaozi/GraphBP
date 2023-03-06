@@ -1,0 +1,1 @@
+CC(C)CC1NC1CC(=O)O	

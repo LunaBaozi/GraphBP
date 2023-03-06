@@ -1,0 +1,1 @@
+CC=C[C@]1(CC[C@@H]2N[C@H]2[C@]2(C)C[C@H](CC)N2)[C@H]2C[C@@H](CC)[C@H](CC)C[C@]21N	

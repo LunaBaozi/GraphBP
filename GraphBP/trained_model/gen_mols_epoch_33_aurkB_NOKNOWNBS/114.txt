@@ -1,0 +1,1 @@
+C=CC[C@@]1(C)C[C@@H]2[C@H]1[C@]21[C@H]2C[C@]23[C@H]([C@@H]2C[C@@H]4[C@H]5O[C@]6(CC=CCCC(=C)C[C@@H](C)O)[C@@]45CC[C@H]4[C@@H]5[C@H]2[C@]45[C@H]2[C@@H]4C[C@@]426)[C@@]31C	

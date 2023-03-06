@@ -1,0 +1,1 @@
+C[AlH]C(C)=C=C1CC=C(C[C@H](O)[C@@H](N)C=C[C@H](BO)C2CCCC2)CC1	
