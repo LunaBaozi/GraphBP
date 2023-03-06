@@ -1,3 +1,6 @@
+# BEFORE DOING THIS WE SHOULD PULL FROM EQUIBIND (since multiligand support is a new feature)
+# so for the time being we still use the old method for generating the EB dataset
+
 import os 
 import shutil 
 from rdkit import Chem
