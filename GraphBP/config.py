@@ -25,7 +25,7 @@ conf['model'] = conf_model
 conf['optim'] = conf_optim
 conf['verbose'] = 100
 conf['batch_size'] = 8 #16
-conf['epochs'] = 1  #100
+conf['epochs'] = 100
 conf['chunk_size'] = 20
 conf['num_workers'] = 4
 

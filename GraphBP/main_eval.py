@@ -20,7 +20,7 @@ uff = True
 uff_w_rec = False # UFF in the context of binding site
 save_sdf_before_uff = False
 save_sdf = True
-data_root='./data/crossdock2020'
+data_root='./datav11/crossdock2020' 
 
 path = './trained_model'
 epoch = 33
