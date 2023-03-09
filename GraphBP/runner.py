@@ -129,7 +129,7 @@ class Runner():
                 add_final=False, 
                 contact_prob=False, 
                 data_root='./datav11/crossdock2020',    
-                data_file='./datav11/crossdock2020/selected_test_target_aurkB.types',
+                data_file='./datav11/crossdock2020/selected_test_target_aurkA.types',
                 atomic_num_to_type=atomic_num_to_type, 
                 atomic_element_to_type = atomic_element_to_type, 
                 known_binding_site=False, 

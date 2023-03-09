@@ -7,8 +7,8 @@ runner = Runner(conf)
 
 
 # POSSIAMO PROVARE A MODIFICARE QUESTOOOO
-# known_binding_site = True
-known_binding_site = False
+known_binding_site = True
+# known_binding_site = False
 
 
 node_temp = 0.5
