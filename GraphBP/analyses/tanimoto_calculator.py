@@ -100,7 +100,7 @@ tanimoto_canon_B = compare_mol_smiles(aurkB_gen_mols, aurkB_inhibitors_dict)
 tanimoto_canon_A_nobs = compare_mol_smiles(aurkA_NOBS_gen_mols, aurkA_inhibitors_dict)
 tanimoto_canon_B_nobs = compare_mol_smiles(aurkB_NOBS_gen_mols, aurkB_inhibitors_dict)
 
-with open('./results/tanimoto_simil_AURKA.csv', 'w', newline='') as csvfile:
+with open('./results/tanimoto_simil_AURKA_4byi.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerows(tanimoto_canon_A)
 

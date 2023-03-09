@@ -9,7 +9,7 @@ conf_aurkA['pdb'] = '4ztq'
 conf_aurkA['rec_name'] = '4ztq_A_rec'
 conf_aurkA['pdb_file_path'] = '../datav11/crossdock2020/AURKA_HUMAN_122_397_0/4ztq_A_rec.pdb'
 conf_aurkA['gen_ligands_path'] = '../trained_model/gen_mols_epoch_33_aurkA/'
-conf_aurkA['gen_complexes'] = './results/AURKA_GEN_COMPLEX'
+conf_aurkA['gen_complexes'] = './results/AURKA_GEN_COMPLEX_4byi'
 
 conf_aurkB['pdb'] = '4af3'
 conf_aurkB['rec_name'] = '4af3_A_rec'
