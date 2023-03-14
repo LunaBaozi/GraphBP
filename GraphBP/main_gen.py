@@ -22,7 +22,7 @@ focus_th = 0.5
 contact_th = 0.5
 
 # OCCHIO QUA SOTTO
-num_gen = 200 # number generate for each reference rec-lig pair
+num_gen = 20 #200 # number generate for each reference rec-lig pair
 
 trained_model_path = 'trained_model'
 epochs = [33]
